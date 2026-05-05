@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Compass</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Career Compass</div>
+
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="#">About</a></li>
+            <li id="loginLink">
+                <a href="login.html">Login</a>
+            </li>
+            <li><a href="#" onclick="logoutUser()">Logout</a></li>
+            <li id="welcomeUser"></li>
+        </ul>
+        <button id="themeToggle">🌙</button>
+    </nav>
+    
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-text">
+            <h1 id="typing"></h1>
+          
+
+            <p>
+                Explore career paths, skills, salary insights,
+                and learning roadmaps.
+            </p>
+
+            <button onclick="window.location.href='careers.html'">Explore Careers</button>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+        </div>
+
+    </section>
+
+    <!-- Career Cards -->
+    <section class="cards">
+
+        <div class="card">
+            <i class="fa-solid fa-code"></i>
+            <h2>Web Development</h2>
+            <p>Frontend, Backend and Full Stack roadmap.</p>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h2>Data Science</h2>
+            <p>Analytics, AI and Machine Learning careers.</p>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-palette"></i>
+            <h2>UI/UX Design</h2>
+            <p>Design beautiful apps and websites.</p>
+        </div>
+
+    </section>
+    <!-- Stats Section -->
+
+<section class="stats">
+
+    <div class="stat-box">
+        <h1>10K+</h1>
+        <p>Students Guided</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>50+</h1>
+        <p>Career Paths</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>100+</h1>
+        <p>Learning Resources</p>
+    </div>
+
+</section>
+    <!-- About Section  -->
+    <section class="about">
+
+    <h1>About Career Compass</h1>
+
+    <p>
+        Career Compass helps students explore different
+        career paths, required skills, salaries and
+        learning roadmaps.
+    </p>
+
+</section>
+<!-- Testimonials -->
+
+<section class="testimonials">
+
+    <h1>What Students Say</h1>
+
+    <div class="testimonial-container">
+
+        <div class="testimonial-card">
+
+            <p>
+                "Career Compass helped me choose Web Development easily."
+            </p>
+
+            <h3>- Rahul</h3>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <p>
+                "Amazing UI and very useful career guidance platform."
+            </p>
+
+            <h3>- Priya</h3>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <p>
+                "I discovered UI/UX Design through this website."
+            </p>
+
+            <h3>- Aman</h3>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- FAQ Section -->
+
+<section class="faq">
+
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-box">
+
+        <h3>How do I choose a career?</h3>
+
+        <p>
+            Explore your interests, skills and future goals.
+        </p>
+
+    </div>
+
+    <div class="faq-box">
+
+        <h3>Is Career Compass free?</h3>
+
+        <p>
+            Yes, students can explore careers for free.
+        </p>
+
+    </div>
+
+    <div class="faq-box">
+
+        <h3>Can beginners use this website?</h3>
+
+        <p>
+            Yes, this platform is beginner-friendly.
+        </p>
+
+    </div>
+
+</section>
+<!-- Contact Section -->
+
+<section class="contact">
+
+    <h1>Contact Us</h1>
+
+    <form onsubmit="sendMessage(event)">
+
+        <input type="text"
+        placeholder="Enter Your Name">
+
+        <input type="email"
+        placeholder="Enter Your Email">
+
+        <textarea
+        placeholder="Your Message"></textarea>
+
+        <button type="submit">
+            Send Message
+        </button>
+
+    </form>
+
+</section>
+<!-- Newsletter Section -->
+
+<section class="newsletter">
+
+    <h1>Subscribe Newsletter</h1>
+
+    <p>
+        Get latest career updates and learning resources.
+    </p>
+
+    <div class="newsletter-box">
+
+        <input type="email"
+        placeholder="Enter Your Email">
+
+        <button onclick="subscribeUser()">
+            Subscribe
+        </button>
+
+    </div>
+
+</section>
+<!-- Footer -->
+
+<footer>
+
+    <p>
+        © 2026 Career Compass | Designed by Shruti
+    </p>
+
+    <div class="social-icons">
+
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+
+    </div>
+
+</footer>
+<button id="topBtn">↑</button>
+<script>
+    // Check Login
+
+if(localStorage.getItem("isLoggedIn") != "true"){
+
+    alert("Please login first");
+
+    window.location.href = "login.html";
+
+}
+    // Show Logged In User Name
+
+let userName =
+localStorage.getItem("userName");
+
+if(userName){
+
+    document.getElementById("welcomeUser").innerHTML =
+
+    "👋 " + userName;
+document.getElementById("loginLink").style.display="none";
+
+}
+
+const themeBtn =
+document.getElementById("themeToggle");
+
+themeBtn.onclick = function(){
+
+    document.body.classList.toggle("light-mode");
+
+    if(document.body.classList.contains("light-mode")){
+        themeBtn.innerHTML = "☀️";
+    }
+    else{
+        themeBtn.innerHTML = "🌙";
+    }
+
+}
+let text =
+"Find Your Dream Career";
+
+let index = 0;
+
+function typeEffect(){
+
+    if(index < text.length){
+
+        document.getElementById("typing").innerHTML +=
+        text.charAt(index);
+
+        index++;
+
+        setTimeout(typeEffect,100);
+
+    }
+
+}
+
+typeEffect();
+const topBtn =
+document.getElementById("topBtn");
+
+window.onscroll = function(){
+
+    if(document.documentElement.scrollTop > 200){
+
+        topBtn.style.display = "block";
+
+    }
+
+    else{
+
+        topBtn.style.display = "none";
+
+    }
+
+}
+
+topBtn.onclick = function(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+/* Logout Function */
+
+function logoutUser(){
+
+    localStorage.removeItem("isLoggedIn");
+
+    localStorage.removeItem("userName");
+
+    alert("Logged Out Successfully");
+
+    window.location.href = "login.html";
+
+}
+// Contact Form
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    alert("Message Sent Successfully");
+
+}
+
+// Newsletter
+
+function subscribeUser(){
+
+    alert("Subscribed Successfully");
+}
+
+</script>
+</body>
+</html>
